@@ -1,41 +1,10 @@
 [ {
   "baseItem" : {
-    "id" : "_23mhkPK0Ee2aMP4Ay1c2DQ",
-    "version" : "0.1",
-    "type" : "job"
-  },
-  "relatedItems" : [ {
-    "id" : "S3Utils",
-    "version" : "Latest",
-    "type" : "routine"
-  } ]
-}, {
-  "baseItem" : {
     "id" : "_MBGlIO12Ee2b-e8Nx3J1eg",
     "version" : "0.1",
     "type" : "job"
   },
-  "relatedItems" : [ {
-    "id" : "DQTechnical",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataMasking",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataQuality",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataQualityDependencies",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DqStringHandling",
-    "version" : "Latest",
-    "type" : "routine"
-  } ]
+  "relatedItems" : [ ]
 }, {
   "baseItem" : {
     "id" : "_Xirx4O46Ee2oZNWQHmtG_w",
@@ -69,37 +38,10 @@
     "version" : "0.1",
     "type" : "job"
   },
-  "relatedItems" : [ ]
-}, {
-  "baseItem" : {
-    "id" : "_sDB3IO8DEe2rhpddVCz3rA",
-    "version" : "0.1",
-    "type" : "job"
-  },
   "relatedItems" : [ {
     "id" : "built-in",
     "version" : "Latest",
     "type" : "context"
-  }, {
-    "id" : "DQTechnical",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataMasking",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataQuality",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataQualityDependencies",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DqStringHandling",
-    "version" : "Latest",
-    "type" : "routine"
   }, {
     "id" : "S3Utils",
     "version" : "Latest",
@@ -115,26 +57,6 @@
     "id" : "built-in",
     "version" : "Latest",
     "type" : "context"
-  }, {
-    "id" : "DQTechnical",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataMasking",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataQuality",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DataQualityDependencies",
-    "version" : "Latest",
-    "type" : "routine"
-  }, {
-    "id" : "DqStringHandling",
-    "version" : "Latest",
-    "type" : "routine"
   }, {
     "id" : "S3Utils",
     "version" : "Latest",

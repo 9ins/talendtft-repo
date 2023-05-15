@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?><talendfile:ProcessType xmlns:talendfile="platform:/resource/org.talend.model/model/TalendFile.xsd" xmlns:xmi="http://www.omg.org/XMI" defaultContext="Default" jobType="Standard" xmi:version="2.0">
-  <context confirmationNeeded="false" name="Default"/>
+  <context confirmationNeeded="false" name="Default">
+    <contextParameter comment="" internalId="_VbpxYPLDEe2tZ8-owHugxw" name="s3bucket" prompt="s3bucket?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="test.talendtft.dev"/>
+    <contextParameter comment="" internalId="_VbpxYfLDEe2tZ8-owHugxw" name="s3object" prompt="s3object?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="sales.json"/>
+    <contextParameter comment="" internalId="_VbpxYvLDEe2tZ8-owHugxw" name="s3key" prompt="s3key?" promptNeeded="false" repositoryContextId="built-in" type="id_String" value="talend-management-console/"/>
+  </context>
   <parameters>
     <elementParameter field="CLOSED_LIST" name="LOG4J_RUN_LEVEL" show="false" value="Info"/>
     <elementParameter field="TEXT" name="SCREEN_OFFSET_X" show="false" value="0"/>
@@ -43,7 +47,7 @@
     <elementParameter field="TEXT" name="PROPERTIES_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:b4lrYYHPoRt77v+a5ZzPIJzpphHR+k//gJfCbG7Z"/>
+    <elementParameter field="PASSWORD" name="PASS_IMPLICIT_CONTEXT" show="false" value="enc:system.encryption.key.v1:ag7TMlHrlVa6eirqwB9rXTzOK208Vkzrtq65foEy"/>
     <elementParameter field="FILE" name="DBFILE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="DBTABLE_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="QUERY_CONDITION_IMPLICIT_CONTEXT" show="false" value="&quot;&quot;"/>
@@ -78,7 +82,7 @@
     <elementParameter field="TEXT" name="PROPERTIES" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SCHEMA_DB" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="USER" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:JbxGZ3A9IYu1jFq2oPFNNncPTmAH2CoeAdSwIqdt"/>
+    <elementParameter field="PASSWORD" name="PASS" show="false" value="enc:system.encryption.key.v1:fuUKKlTjLr0A9mKdA8wYuCZ9fRHF7vg/wRl+NGcU"/>
     <elementParameter field="FILE" name="DBFILE" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_STATS" show="false" value="&quot;&quot;"/>
     <elementParameter field="DBTABLE" name="TABLE_LOGS" show="false" value="&quot;&quot;"/>
@@ -107,6 +111,7 @@
     <routinesParameter id="_LGcToO46Ee2oZNWQHmtG_w" name="TalendDate"/>
     <routinesParameter id="_LGcTtO46Ee2oZNWQHmtG_w" name="TalendStringUtil"/>
     <routinesParameter id="_LGcTqu46Ee2oZNWQHmtG_w" name="TalendString"/>
+    <routinesParameter id="_9TBZIPCAEe2GFN3p_H-GnQ" name="S3Utils"/>
   </parameters>
   <node componentName="tPrejob" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tPrejob_1"/>
@@ -119,10 +124,10 @@
   <node componentName="tRabbitMQConnection" componentVersion="1" offsetLabelX="0" offsetLabelY="0" posX="256" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRabbitMQConnection_1"/>
     <elementParameter field="TECHNICAL" name="TACOKIT_COMPONENT_ID" show="false" value="cmFiYml0bXEjUmFiYml0TVEjSW5wdXQConnection"/>
-    <elementParameter field="TEXT" name="configuration.hostname" value="13.125.75.164"/>
+    <elementParameter field="TEXT" name="configuration.hostname" value="15.164.228.102"/>
     <elementParameter field="TEXT" name="configuration.port" value="5672"/>
     <elementParameter field="TEXT" name="configuration.userName" value="user"/>
-    <elementParameter field="PASSWORD" name="configuration.password" value="enc:system.encryption.key.v1:jqaSnFHjFyC1N4HQI42m5yLadv+RpMvij08QPr0XQzT5RioFONtSK9MO"/>
+    <elementParameter field="PASSWORD" name="configuration.password" value="enc:system.encryption.key.v1:G2u+J8EX0qWWlYCnX09S4YTS0U5UMGa2l3ViGnHF7EHmOrZWaawKm/tY"/>
     <elementParameter field="CHECK" name="configuration.tls" value="false"/>
     <elementParameter field="CHECK" name="configuration.useVirtualHost" value="false"/>
     <elementParameter field="TEXT" name="configuration.virtualHost" show="false" value="/"/>
@@ -142,38 +147,38 @@
     <metadata connector="MERGE" name="MERGE"/>
     <metadata connector="REJECT" name="REJECT"/>
   </node>
-  <node componentName="tS3Get" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="288" posY="224">
+  <node componentName="tS3Get" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="256" posY="192">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tS3Get_1"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="false"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" show="false" value=""/>
-    <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tS3Connection_1"/>
+    <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" show="false" value="STATIC_CREDENTIALS"/>
     <elementParameter field="FILE" name="PROFILE_PATH" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;AKIAXIHPG4F55OPX6D75&quot;"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:GU2C27cRbDgoELi/+vGG4UxdxTSj0Lg31oOzqWvIbhDM104UpeiNgPr/jbk/OZLvu6mlQ5eW4BH11xpA1k1iO3Ocerh+XQ=="/>
-    <elementParameter field="CHECK" name="ASSUME_ROLE" value="false"/>
+    <elementParameter field="TEXT" name="ACCESS_KEY" show="false" value="&quot;AKIAXIHPG4F55OPX6D75&quot;"/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" show="false" value="enc:system.encryption.key.v1:OM8s26Ee+WBcLnngeTmdSmOoyaA1NVpVzkLYlULfXlSMyyn9LjGvG9xLqj/cDrLXJWkfDfsLMOeheYuOYcQmJrVFrrI1AQ=="/>
+    <elementParameter field="CHECK" name="ASSUME_ROLE" show="false" value="false"/>
     <elementParameter field="TEXT" name="ARN" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="SESSION_DURATION" show="false" value="15"/>
-    <elementParameter field="OPENED_LIST" name="REGION" value="&quot;ap-northeast-2&quot;"/>
-    <elementParameter field="CHECK" name="ENCRYPT" value="false"/>
+    <elementParameter field="OPENED_LIST" name="REGION" show="false" value="&quot;ap-northeast-2&quot;"/>
+    <elementParameter field="CHECK" name="ENCRYPT" show="false" value="false"/>
     <elementParameter field="CLOSED_LIST" name="KEY_TYPE" show="false" value="KMS_CMK"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" show="false" value="AES"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" show="false" value="RSA"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" show="false" value="BASE64"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" show="false" value="enc:system.encryption.key.v1:6N75q/AmQd5UuLwoOm08LL1WCWJmlcgxVbF7hjfZ"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" show="false" value="enc:system.encryption.key.v1:j2vAhCcZLI4f+8RxIWRZovWFXiO6sPP4IHNqKOvP"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" show="false" value="enc:system.encryption.key.v1:1RaU/ySP9nzUz0R3WBVVg2QjGoXgyDpLYdBoRZIM"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" show="false" value="enc:system.encryption.key.v1:hNl2/sEduCYMKZg2aAgE944ZznMkDzxjrseHI8DJ"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" show="false" value="&quot;&quot;"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" show="false" value="&quot;&quot;"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="BUCKET" value="&quot;test.talendtft.dev&quot;"/>
-    <elementParameter field="TEXT" name="KEY" value="&quot;talend-management-console/newColumns_&quot;+new java.util.Date()+&quot;.json&quot;"/>
-    <elementParameter field="FILE" name="FILE" value="&quot;D:/TalendTFT/Talend Software/Talend-Studio-20221003_1400-V8.0.1-R2022-09/Talend-Studio-20221003_1400-V8.0.1/workspace/out.csv&quot;"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
+    <elementParameter field="TEXT" name="BUCKET" value="context.s3bucket"/>
+    <elementParameter field="TEXT" name="KEY" value="context.s3key"/>
+    <elementParameter field="FILE" name="FILE" value="&quot;sales.json&quot;"/>
+    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="true"/>
     <elementParameter field="FILE" name="WEB_IDENTITY_TOKEN_FILE" show="false" value=""/>
     <elementParameter field="TEXT" name="WEB_TOKEN_ARN" show="false" value=""/>
     <elementParameter field="TEXT" name="WEB_TOKEN_ROLE_SESSION_NAME" show="false" value=""/>
-    <elementParameter field="CHECK" name="CONFIG_CLIENT" value="false"/>
+    <elementParameter field="CHECK" name="CONFIG_CLIENT" show="false" value="false"/>
     <elementParameter field="TABLE" name="CLIENT_CONFIGURATION" show="false"/>
     <elementParameter field="CHECK" name="SET_STS_ENDPOINT" show="false" value="false"/>
     <elementParameter field="TEXT" name="STS_ENDPOINT" show="false" value="&quot;&quot;"/>
@@ -184,7 +189,7 @@
     <elementParameter field="TABLE" name="TAGS" show="false"/>
     <elementParameter field="TABLE" name="POLICY_TABLE" show="false"/>
     <elementParameter field="MEMO" name="POLICY" show="false" value="&quot;&quot;"/>
-    <elementParameter field="CHECK" name="ENABLE_ACCELERATE" value="false"/>
+    <elementParameter field="CHECK" name="ENABLE_ACCELERATE" show="false" value="false"/>
     <elementParameter field="CHECK" name="USE_SELECT" value="false"/>
     <elementParameter field="CLOSED_LIST" name="FILE_TYPE" show="false" value="CSV"/>
     <elementParameter field="TEXT" name="QUERY" show="false" value="&quot;select s._1 from S3Object s&quot;"/>
@@ -202,47 +207,13 @@
     <elementParameter field="CHECK" name="USE_TEMP_FILES_FOR_PARALLEL_DOWNLOAD" value="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
-  <node componentName="tS3List" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="96" posY="224">
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tS3List_1"/>
-    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
-    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tS3Connection_1"/>
-    <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" show="false" value="STATIC_CREDENTIALS"/>
-    <elementParameter field="FILE" name="PROFILE_PATH" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="PROFILE_NAME" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="ACCESS_KEY" show="false" value="&quot;&quot;"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" show="false" value="enc:system.encryption.key.v1:A/Tg8swBy+GdcCmKQcfWDIQlLSaLCAlv86e50rNu"/>
-    <elementParameter field="CHECK" name="ASSUME_ROLE" show="false" value="false"/>
-    <elementParameter field="TEXT" name="ARN" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="ROLE_SESSION_NAME" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="SESSION_DURATION" show="false" value="15"/>
-    <elementParameter field="OPENED_LIST" name="REGION" show="false" value="DEFAULT"/>
-    <elementParameter field="CHECK" name="LISTALL" value="true"/>
-    <elementParameter field="TEXT" name="OBJECTS_PREFIX" value=""/>
-    <elementParameter field="TABLE" name="BUCKETS" show="false"/>
-    <elementParameter field="CHECK" name="DIE_ON_ERROR" value="false"/>
-    <elementParameter field="FILE" name="WEB_IDENTITY_TOKEN_FILE" show="false" value=""/>
-    <elementParameter field="TEXT" name="WEB_TOKEN_ARN" show="false" value=""/>
-    <elementParameter field="TEXT" name="WEB_TOKEN_ROLE_SESSION_NAME" show="false" value=""/>
-    <elementParameter field="CHECK" name="CONFIG_CLIENT" show="false" value="false"/>
-    <elementParameter field="TABLE" name="CLIENT_CONFIGURATION" show="false"/>
-    <elementParameter field="CHECK" name="SET_STS_ENDPOINT" show="false" value="false"/>
-    <elementParameter field="TEXT" name="STS_ENDPOINT" show="false" value="&quot;&quot;"/>
-    <elementParameter field="OPENED_LIST" name="SIGNING_REGION" show="false" value="DEFAULT"/>
-    <elementParameter field="TEXT" name="EXTERNALID" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="SERIALNUMBER" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="TOKENCODE" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TABLE" name="TAGS" show="false"/>
-    <elementParameter field="TABLE" name="POLICY_TABLE" show="false"/>
-    <elementParameter field="MEMO" name="POLICY" show="false" value="&quot;&quot;"/>
-    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
-  </node>
   <node componentName="tS3Connection" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="64">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tS3Connection_1"/>
     <elementParameter field="CLOSED_LIST" name="CREDENTIAL_PROVIDER" value="STATIC_CREDENTIALS"/>
     <elementParameter field="FILE" name="PROFILE_PATH" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="PROFILE_NAME" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="ACCESS_KEY" value="&quot;AKIAXIHPG4F55OPX6D75&quot;"/>
-    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:lmN/fiULgB5/Xy6byuAe4JgoWVdpJ25asn70/HzCvkkGSbtBBRikZBazNDBgq+imKopI2/ITDSpQHyW7OvtOZK7wpsW3+Q=="/>
+    <elementParameter field="PASSWORD" name="SECRET_KEY" value="enc:system.encryption.key.v1:njSi8rgkzU5a2K/WjK70/lhOR0rObO7M9mO6C2cxELpnWl64/2q12ww49OltTcEGKvVvtBtjqrXFf0FwSgWTHTaCxUqEqg=="/>
     <elementParameter field="CHECK" name="ASSUME_ROLE" value="false"/>
     <elementParameter field="TEXT" name="ARN" show="false" value="&quot;&quot;"/>
     <elementParameter field="TEXT" name="ROLE_SESSION_NAME" show="false" value="&quot;&quot;"/>
@@ -253,8 +224,8 @@
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_SYMMETRIC_MASTER_KEY" show="false" value="AES"/>
     <elementParameter field="CLOSED_LIST" name="ALGORITHM_ASYMMETRIC_MASTER_KEY" show="false" value="RSA"/>
     <elementParameter field="CLOSED_LIST" name="ENCODING" show="false" value="BASE64"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" show="false" value="enc:system.encryption.key.v1:xgmKgU3spWTXmKg7hqN848bPMA4dkYFnpaaGvft6"/>
-    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" show="false" value="enc:system.encryption.key.v1:L+i3S6WjPT6MwKWQ3Pr5Yj6Kb4oNXBwRQxI5FqCW"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_CMK" show="false" value="enc:system.encryption.key.v1:GbmBsCcorODBWIwE8rfGKuJhXUabJ9upc+AMtI+V"/>
+    <elementParameter field="PASSWORD" name="ENCRYPTED_KEY_BASE64" show="false" value="enc:system.encryption.key.v1:v8Q5HgXqiSl4mFz0aDMbmf8THDgzNzydhcA0Y7De"/>
     <elementParameter field="FILE" name="ENCRYPTED_KEY_X509" show="false" value="&quot;&quot;"/>
     <elementParameter field="FILE" name="PUBLIC_KEY" show="false" value="&quot;&quot;"/>
     <elementParameter field="FILE" name="PRIVATE_KEY" show="false" value="&quot;&quot;"/>
@@ -280,6 +251,54 @@
     <elementParameter field="CHECK" name="ENABLE_ACCELERATE" value="false"/>
     <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
   </node>
+  <node componentName="tJava" componentVersion="0.101" offsetLabelX="0" offsetLabelY="0" posX="96" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJava_1"/>
+    <elementParameter field="MEMO_JAVA" name="CODE" value="context.s3key += S3Utils.s3key(context.s3object);&#10;System.out.println(context.s3key);&#10;"/>
+    <elementParameter field="MEMO_IMPORT" name="IMPORT" value="//import java.util.List;"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tJava_1"/>
+  </node>
+  <node componentName="tFileInputFullRow" componentVersion="0.102" offsetLabelX="0" offsetLabelY="0" posX="416" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputFullRow_1"/>
+    <elementParameter field="FILE" name="FILENAME" value="&quot;sales.json&quot;"/>
+    <elementParameter field="TEXT" name="ROWSEPARATOR" value="&quot;\n&quot;"/>
+    <elementParameter field="TEXT" name="HEADER" value=""/>
+    <elementParameter field="TEXT" name="FOOTER" value=""/>
+    <elementParameter field="TEXT" name="LIMIT" value=""/>
+    <elementParameter field="CHECK" name="REMOVE_EMPTY_ROW" value="true"/>
+    <elementParameter field="ENCODING_TYPE" name="ENCODING" value="&quot;UTF-8&quot;"/>
+    <elementParameter field="TECHNICAL" name="ENCODING:ENCODING_TYPE" value="UTF-8"/>
+    <elementParameter field="CHECK" name="RANDOM" value="false"/>
+    <elementParameter field="TEXT" name="NB_RANDOM" show="false" value="10"/>
+    <elementParameter field="TEXT" name="CONNECTION_FORMAT" value="row"/>
+    <metadata connector="FLOW" name="tFileInputFullRow_1">
+      <column key="false" length="255" name="message" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+  </node>
+  <node componentName="RabbitMQOutput" componentVersion="1" offsetLabelX="0" offsetLabelY="0" posX="544" posY="192">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tRabbitMQOutput_1"/>
+    <elementParameter field="TECHNICAL" name="TACOKIT_COMPONENT_ID" show="false" value="cmFiYml0bXEjUmFiYml0TVEjT3V0cHV0"/>
+    <elementParameter field="TEXT" name="configuration.exchangeDataSet.connection.port" show="false" value="5672"/>
+    <elementParameter field="CHECK" name="configuration.exchangeDataSet.connection.tls" show="false" value="false"/>
+    <elementParameter field="CLOSED_LIST" name="configuration.exchangeDataSet.exchangeType" value="DIRECT"/>
+    <elementParameter field="TEXT" name="configuration.exchangeDataSet.exchangeName" value="talend.tft.exchange"/>
+    <elementParameter field="TABLE" name="configuration.headerProperties"/>
+    <elementParameter field="CHECK" name="configuration.exchangeDataSet.connection.useVirtualHost" show="false" value="false"/>
+    <elementParameter field="TEXT" name="configuration.exchangeDataSet.connection.virtualHost" show="false" value="/"/>
+    <elementParameter field="CHECK" name="configuration.exchangeDataSet.durable" value="true"/>
+    <elementParameter field="CHECK" name="configuration.exchangeDataSet.autoDelete" value="false"/>
+    <elementParameter field="CHECK" name="configuration.exchangeDataSet.useAlternateExchange" value="false"/>
+    <elementParameter field="CHECK" name="USE_EXISTING_CONNECTION" value="true"/>
+    <elementParameter field="COMPONENT_LIST" name="CONNECTION" value="tRabbitMQConnection_1"/>
+    <elementParameter field="TECHNICAL" name="configuration.exchangeDataSet.__version" show="false" value="-1"/>
+    <elementParameter field="TECHNICAL" name="configuration.exchangeDataSet.connection.__version" show="false" value="-1"/>
+    <metadata connector="FLOW" name="tRabbitMQOutput_1">
+      <column key="false" length="255" name="message" nullable="true" originalLength="-1" precision="0" sourceType="" type="id_String" usefulColumn="true"/>
+    </metadata>
+    <metadata connector="LOOKUP" name="LOOKUP"/>
+    <metadata connector="MERGE" name="MERGE"/>
+    <metadata connector="REJECT" name="REJECT"/>
+  </node>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tPrejob_1" offsetLabelX="0" offsetLabelY="0" source="tPrejob_1" target="tRabbitMQConnection_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk1"/>
   </connection>
@@ -288,6 +307,21 @@
   </connection>
   <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tRabbitMQConnection_1" offsetLabelX="0" offsetLabelY="0" source="tRabbitMQConnection_1" target="tS3Connection_1">
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk3"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tS3Get_1" offsetLabelX="0" offsetLabelY="0" source="tS3Get_1" target="tFileInputFullRow_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk5"/>
+  </connection>
+  <connection connectorName="COMPONENT_OK" label="OnComponentOk" lineStyle="3" metaname="tJava_1" offsetLabelX="0" offsetLabelY="0" source="tJava_1" target="tS3Get_1">
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="OnComponentOk4"/>
+  </connection>
+  <connection connectorName="FLOW" label="row1" lineStyle="0" metaname="tFileInputFullRow_1" offsetLabelX="0" offsetLabelY="0" source="tFileInputFullRow_1" target="tRabbitMQOutput_1">
+    <elementParameter field="TABLE" name="TRACES_CONNECTION_FILTER" show="false">
+      <elementValue elementRef="TRACE_COLUMN" value="message"/>
+      <elementValue elementRef="TRACE_COLUMN_CHECKED" value="true"/>
+      <elementValue elementRef="TRACE_COLUMN_CONDITION" value=""/>
+    </elementParameter>
+    <elementParameter field="CHECK" name="MONITOR_CONNECTION" value="false"/>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="row1"/>
   </connection>
   <subjob>
     <elementParameter field="CHECK" name="SHOW_SUBJOB_TITLE" show="false" value="true"/>
@@ -317,22 +351,27 @@
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
   <subjob>
-    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tS3List_1"/>
-    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
-    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
-  </subjob>
-  <subjob>
     <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tS3Connection_1"/>
     <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
     <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
   </subjob>
-<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_a534c828-2290-4016-aec2-97d2c82678f1"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>5xP5/reYcrHtp8mLrQoh07MKu5at3KSUM7gZ2dI67HN76meo5g/i4GJ7uKnSm305hq72OksfiKmM&#13;
-A230mBGdTQ==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_ca7e6627-41dd-4982-9f44-f458ae74c474"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>QYbAAvh+rjV+/23/1Z8bJjWx0OyAyp8V8aGMG3kJdrQSlaJ9mlGa3RxkhL1ODeQkJsQFsDW5IE0v&#13;
-HTBMd00mBw==</DigestValue></Reference></SignedInfo><SignatureValue>gOFlY69XiFQuIyigIslibm2EncEVw68QCY9FE0iCl0UuUrLtA81uPNYFwgNC8BRlG/+MRLSDy9+n&#13;
-u5UH8fix1IZ1bcxjylsRw/xsiIROpZxLIz9QThAIe2OWaMxwS7UAMEmj7EewQDb4rGj1Mk5ljxVX&#13;
-50GtNJ2X4q+tZJ2DwtjHIEoYg59cTKKM4TlTd/oJVt1WneK1oNyCihfFYVTDDiWjBWYSenBCSS+1&#13;
-6Nv+ZIAJABAJ/mhpdwYmdDtnmYdlP1RxjBi5Iy3LgbfsnGrwo1G326JjTdXm6nRG4ahsIWgS2eiX&#13;
-6309NPNIjNL3/ufpcd24iEh+QE7F61c5AHnL2g==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tJava_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+  <subjob>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" show="false" value="tFileInputFullRow_1"/>
+    <elementParameter field="COLOR" name="SUBJOB_TITLE_COLOR" show="false" value="92;131;150"/>
+    <elementParameter field="COLOR" name="SUBJOB_COLOR" value="207;226;236"/>
+  </subjob>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#" Id="_faccbe15-63c9-44fc-a317-332479b94781"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/><SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha512"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>eT9kf5eh0m/epAH4Sr4JgsVfLkJCtHLpcLVgasmKULizrlyyllgdQkVwh5V49M1/hr7zC+uTkBCc&#13;
+wjyzT62X7g==</DigestValue></Reference><Reference Type="http://www.w3.org/2000/09/xmldsig#SignatureProperties" URI="#_bab5ef98-b47f-472c-a369-4922fd3c56b8"><Transforms><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha512"/><DigestValue>1jq74ns6bL4gUD4DGF3/fwnkmM+Fe/ykTGo5rLnnxDXPv67zSfQ9oEFPMWDURuEwdWvow+xA8x8H&#13;
+5uxGwIm3Aw==</DigestValue></Reference></SignedInfo><SignatureValue>p4DwBGds2eF8wgQplJ1ZTjFVH0TDsueKG0kzXX5fx7wz4pKmfoqVOPdh+IW4BzaMtkWA+09l1j3M&#13;
+xDYbIjZvxQfTST3uzYLGCsBBmRYihf9oPhu+n9wALbmPhXS9Tgq+TRt2Rlq8zD+/yykMQ+AEDcdc&#13;
+paMjKJabJ5pOhl1zFbMdJRUqpo6m4mWBdKMyMdC4s/LpbBzDgxZfhCohTpSOXBwEb97Eu0/CKoza&#13;
+14kPDBY1LnNjiRY++EgA+BAp5Cau7RYjBlVf6R1dbXrmn1QnySnMNqDBhYhbNr4HlgiooTVgyQ5b&#13;
+fRpniGRonyemspy9s0TRRwyPf4X9l7rfYp0+7w==</SignatureValue><KeyInfo><X509Data><X509SubjectName>C=FR,ST=Paris,L=Paris,O=Talend Inc.,OU=R&amp;D,CN=Talend Code Signing certificate</X509SubjectName><X509Certificate>MIIFADCCAuigAwIBAgIIA2OsD6bRyj0wDQYJKoZIhvcNAQELBQAwgY0xCzAJBgNVBAYTAkZSMQ4w&#13;
 DAYDVQQIEwVQYXJpczEOMAwGA1UEBxMFUGFyaXMxFDASBgNVBAoTC1RhbGVuZCBJbmMuMQwwCgYD&#13;
 VQQLDANSJkQxFjAUBgNVBAMMDVRhbGVuZCBSJkQgQ0ExIjAgBgkqhkiG9w0BCQEWE3NlY3VyaXR5&#13;
 QHRhbGVuZC5jb20wHhcNMTkwNjAzMDgxODIwWhcNMjkwNjAzMDAwMDAwWjB7MSgwJgYDVQQDEx9U&#13;
@@ -354,4 +393,4 @@ hakvpzhOyLo91h8YAQrEZJdNuKA8IYmBrFZQZDCz0uywKSyFfzPyJhvxylCLG/iDPPfE0VWcrMJ/&#13
 WQJly/2XPg/NBCTF3pSKS0kCiA7PeaI3cWkMYYA3PMwYDvzqs1opBRglG7ikj0bQxSm3lcjMuuvW&#13;
 gBRksFKjP3K/nztsjSoYITOM9jR29ReIL3v0E8RbAFwA2RGq6Dxd0ixfbucMesy5Gnr8tfYy6rW+&#13;
 qSQqd3ah4+PSzBNVwIB4ytpdrG3SlhCI2i2Th8ek8Sjsaquh9qPAerWNd2+84HWOOGj1Xe1qc6vg&#13;
-qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_ca7e6627-41dd-4982-9f44-f458ae74c474" Target="#_a534c828-2290-4016-aec2-97d2c82678f1"><Timestamp>2023-05-14 23:48:39</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
+qqu6JoK9EXKDiwBqDVkueIa+MhamE1VDnhn2pPui</X509Certificate></X509Data></KeyInfo><Object><SignatureProperties><SignatureProperty Id="_bab5ef98-b47f-472c-a369-4922fd3c56b8" Target="#_faccbe15-63c9-44fc-a317-332479b94781"><Timestamp>2023-05-15 04:38:37</Timestamp></SignatureProperty></SignatureProperties></Object></Signature></talendfile:ProcessType>
